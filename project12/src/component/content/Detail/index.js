@@ -3,8 +3,6 @@ import Header from "../../../component/header";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import {
-
-  fetchSwapiAction,
   updateUrlDetailAction,
   clearSwapiAction,
   fetchProfileData
@@ -21,7 +19,6 @@ class Detail extends React.Component {
     }
   }
   componentDidMount() {
-    this.props.fetchSwapiAction();
     this.props.fetchProfileData(this.props.urlDetail)  
   }
 
@@ -75,16 +72,12 @@ class Detail extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  num: state.count,
-  user: state.user,
-  swapiD: state.swapiD.data,
   selectedProfile: state.selectedProfile.data,
   loadingProfile: state.selectedProfile.loading,
   urlDetail: state.selectedProfile.urlDetail
 });
 const mapDispatchToProps = dispatch => ({
  
-  fetchSwapiAction: () => dispatch(fetchSwapiAction()),
   updateUrlDetailAction: () => dispatch(updateUrlDetailAction()),
   clearSwapiAction: () => dispatch(clearSwapiAction()),
   fetchProfileData: () => dispatch(fetchProfileData())

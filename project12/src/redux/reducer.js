@@ -22,7 +22,7 @@ const app = (state = { ...appStore }, action) => {
       };
 
     case "swap_fetch_succ":
-      // console.log(action);
+      console.log(action);
       return {
         ...state,
         swapiD: {

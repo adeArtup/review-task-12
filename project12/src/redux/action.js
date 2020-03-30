@@ -7,11 +7,11 @@ export const fetchSwapi = () => ({
 export const fetchSwapiAction = () => {
   return (dispatch) => {
     dispatch(fetchSwapi())
-    axios.get('http://www.omdbapi.com/?i=tt3896198&apikey=1c9c8795')
+    axios.get('http://www.omdbapi.com/?i=tt3896198&apikey=1c9c8795&s=avenger')
     .then(res =>{
       dispatch({
         type: 'swap_fetch_succ',
-        payload: res.data.results
+        payload: res.data.Search
       })
     })
     .catch(err =>{
