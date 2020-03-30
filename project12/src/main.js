@@ -1,10 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "react-bootstrap/Button";
-import { LinkContainer } from "react-router-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import App from "./App";
-import Meetup from "./component/content/Meetup";
+import Detail from "./component/content/Detail";
 import Explore from "./component/content/Explore";
 import { Provider } from "react-redux";
 import storeS from "./redux/store";
@@ -14,7 +12,7 @@ export default function Main() {
     <Provider store={storeS}>
       <Router>
         <Switch>
-          <Route path="/Meetup" component={Meetup}>
+          <Route path="/Detail" component={Detail}>
             {/* <About /> */}
           </Route>
           <Route path="/Explore" component={Explore}>

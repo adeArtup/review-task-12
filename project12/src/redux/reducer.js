@@ -1,9 +1,4 @@
 const appStore = {
-  user: {
-    name: "Udin",
-    old: "12"
-  },
-  count: 0,
   swapiD: {
     loading: false,
     data: []
@@ -17,26 +12,6 @@ const appStore = {
 
 const app = (state = { ...appStore }, action) => {
   switch (action.type) {
-    case "INCREMENT":
-      return {
-        ...state,
-        count: state.count + action.payload
-      };
-    case "DECREMENT":
-      return {
-        ...state,
-        count: state.count - action.payload
-      };
-
-    case "CHANGENAME":
-      return {
-        ...state,
-        user: {
-          ...state.user,
-          name: action.payload,
-          old: "12"
-        }
-      };
     case "swap_fetch":
       return {
         ...state,

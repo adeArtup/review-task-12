@@ -3,8 +3,7 @@ import Header from "../../../component/header";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import {
-  incrementAction,
-  decrementAction,
+
   fetchSwapiAction,
   updateUrlDetailAction,
   clearSwapiAction,
@@ -13,7 +12,8 @@ import {
 
 import Button from "react-bootstrap/Button";
 
-class Explorer extends React.Component {
+class Detail extends React.Component {
+
 
   componentDidUpdate(prevProps){
     if(prevProps.urlDetail !== this.props.urlDetail){
@@ -38,6 +38,12 @@ class Explorer extends React.Component {
     return (
       <React.Fragment>
         <Header />
+        <div style={{ width: '100%', height: '100px', marginTop: "10vh", backgroundColor: 'cyan'}} >
+                        <p>selected Profile: {loadingProfile ? '...Loading': selectedProfile.name} </p>
+                        
+                        <Link to="/about">go to about</Link>
+                </div>
+        <br />
         <div
           style={{
             width: "100%",
@@ -69,16 +75,19 @@ class Explorer extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  num: state.count,
+  user: state.user,
   swapiD: state.swapiD.data,
   selectedProfile: state.selectedProfile.data,
   loadingProfile: state.selectedProfile.loading,
   urlDetail: state.selectedProfile.urlDetail
 });
 const mapDispatchToProps = dispatch => ({
+ 
   fetchSwapiAction: () => dispatch(fetchSwapiAction()),
   updateUrlDetailAction: () => dispatch(updateUrlDetailAction()),
   clearSwapiAction: () => dispatch(clearSwapiAction()),
   fetchProfileData: () => dispatch(fetchProfileData())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Explorer);
+export default connect(mapStateToProps, mapDispatchToProps)(Detail);

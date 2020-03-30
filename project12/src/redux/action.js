@@ -1,26 +1,5 @@
 import axios from 'axios';
 
-export const incrementAction = () => {
-  return {
-    type: "INCREMENT",
-    payload: 1
-  };
-};
-
-export const decrementAction = () => {
-  return {
-    type: "DECREMENT",
-    payload: 1
-  };
-};
-
-export const changeName = name => {
-  return {
-    type: "CHANGENAME",
-    payload: name
-  };
-};
-
 export const fetchSwapi = () => ({
   type: 'swap_fetch'
 })
@@ -28,7 +7,7 @@ export const fetchSwapi = () => ({
 export const fetchSwapiAction = () => {
   return (dispatch) => {
     dispatch(fetchSwapi())
-    axios.get('https://swapi.co/api/people')
+    axios.get('http://www.omdbapi.com/?i=tt3896198&apikey=1c9c8795')
     .then(res =>{
       dispatch({
         type: 'swap_fetch_succ',
