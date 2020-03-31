@@ -38,9 +38,8 @@ class Detail extends React.Component {
         <div style={{ width: '100%', height: '100px', marginTop: "10vh", backgroundColor: 'cyan'}} >
                         <p>selected Profile: {loadingProfile ? '...Loading': selectedProfile.name} </p>
                         
-                        <Link to="/about">go to about</Link>
                 </div>
-        <br />
+        {/* <br />
         <div
           style={{
             width: "100%",
@@ -65,7 +64,7 @@ class Detail extends React.Component {
               )
             })}
           </p>
-        </div>
+        </div> */}
       </React.Fragment>
     );
   }

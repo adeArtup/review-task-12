@@ -6,7 +6,7 @@ const appStore = {
   selectedProfile: {
     loading: false,
     data: {},
-    urlDetail : 'https://swapi.co/api/people/1'
+    urlDetail : 'http://www.omdbapi.com/?apikey=1c9c8795&'
   }
 };
 
@@ -22,7 +22,7 @@ const app = (state = { ...appStore }, action) => {
       };
 
     case "swap_fetch_succ":
-      console.log(action);
+      // console.log(action);
       return {
         ...state,
         swapiD: {
@@ -49,6 +49,7 @@ const app = (state = { ...appStore }, action) => {
         }
       };
     case "FETCH_SWAPI_DETAIL_SUCCESS":
+      console.log(action);
       return {
         ...state,
         selectedProfile: {

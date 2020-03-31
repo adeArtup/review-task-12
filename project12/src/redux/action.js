@@ -30,7 +30,7 @@ export const fetchProfileData = (params) => {
     })
     axios.get(params)
     .then(res => {
-      console.log(res, `<=================== res ==================`);
+      // console.log(res, `<=================== res ==================`);
       dispatch({
         type: 'FETCH_SWAPI_DETAIL_SUCCESS',
         payload: res.data
