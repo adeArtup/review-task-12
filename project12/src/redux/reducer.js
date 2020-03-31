@@ -6,7 +6,7 @@ const appStore = {
   selectedProfile: {
     loading: false,
     data: {},
-    urlDetail : 'http://www.omdbapi.com/?apikey=1c9c8795&'
+    urlDetail : 'http://www.omdbapi.com/?i=tt3896198&apikey=1c9c8795&s=avenger'
   }
 };
 
@@ -49,7 +49,7 @@ const app = (state = { ...appStore }, action) => {
         }
       };
     case "FETCH_SWAPI_DETAIL_SUCCESS":
-      console.log(action);
+      
       return {
         ...state,
         selectedProfile: {
@@ -67,6 +67,7 @@ const app = (state = { ...appStore }, action) => {
         }
       };
     case "UPDATE_URL_DETAIL": {
+      console.log(action.payload,'<=================');
       return {
         ...state,
         selectedProfile: {

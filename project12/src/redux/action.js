@@ -24,6 +24,7 @@ export const fetchSwapiAction = () => {
 }
 
 export const fetchProfileData = (params) => {
+  console.log(params,'<===================');
   return dispatch => {
     dispatch({
       type: 'FETCH_SWAPI_DETAIL'

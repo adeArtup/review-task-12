@@ -4,7 +4,8 @@ import CoHead from "../../content/Contents/ContentHeader";
 import { connect, useDispatch, useSelector } from "react-redux";
 import {
   fetchSwapiAction,
-  fetchProfileData
+  fetchProfileData,
+  updateUrlDetailAction
 } from "../../../redux/action";
 
 import { Link } from "react-router-dom";
@@ -16,13 +17,15 @@ class Explorer extends React.Component {
     this.props.fetchProfileData(this.props.urlDetail);  
   }
 
+  selectProfile = urlDetail => {
+    this.props.updateUrlDetailAction(urlDetail);
+  };
+
   
 
   render() {
     const { loadingProfile, selectedProfile } = this.props;
-    const selectProfile = (urlDetail) => {
-      this.props.updateUrlDetailAction(urlDetail);
-    }
+    
     return (
       <React.Fragment>
         <Header />
@@ -31,15 +34,13 @@ class Explorer extends React.Component {
         {/* <div className="row"> */}
         <div className="card-content-fth ">
         {this.props.swapiD.map(data => {
+          const url = "http://www.omdbapi.com/?apikey=1c9c8795&t=Captain America: The First Avenger";
           return (
-            
-              // <div className="col-sm-4">
-               
                   <div className="card pmee sec">
                     <div className="card-body">
                       <h5 className="card-title">{data["Title"]}</h5>
                       <hr />
-                      {/* <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6> */}
+          <h6 className="card-subtitle mb-2 text-muted">{data['Year']}</h6>
                       <p className="card-text">
                         <img
                           src={data["Poster"]}
@@ -51,7 +52,7 @@ class Explorer extends React.Component {
                       <Link
                         to={{pathname:`/Detail/${data['Title']}`}}
                         className="btn btn-info btn-sm card-photo-btn"
-                        onClick={() => selectProfile(data[''])}
+                        onClick={() => this.selectProfile(url)}
                       >
                         View Detail
                       </Link>
@@ -74,7 +75,8 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   fetchSwapiAction: () => dispatch(fetchSwapiAction()),
-  fetchProfileData: () => dispatch(fetchProfileData())
+  fetchProfileData: () => dispatch(fetchProfileData()),
+  updateUrlDetailAction: () => dispatch(updateUrlDetailAction())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Explorer);
